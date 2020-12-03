@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TipFragment">
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:clipToPadding="false"
+        android:elevation="20dp"
+        android:theme="@style/Theme.MaterialComponents.Light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:tintMode="src_atop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/app_header_background"
+                app:tint="@color/transparentBlack" />
+
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="150sp"
+                android:layout_height="150sp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="62dp"
+                android:layout_marginBottom="63dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="@+id/imageView"
+                app:srcCompat="@drawable/lakers_logo" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="150sp"
+                android:layout_height="150sp"
+                android:layout_marginTop="62dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="63dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="@+id/imageView"
+                app:srcCompat="@drawable/thunders_logo" />
+
+            <TextView
+                android:id="@+id/laker_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="52dp"
+                android:layout_marginTop="172dp"
+                android:text="@string/default_score"
+                android:textColor="@color/scoreText"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+            <TextView
+                android:id="@+id/thunders_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="172dp"
+                android:layout_marginEnd="52dp"
+                android:text="@string/default_score"
+                android:textColor="@color/scoreText"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/imageView3"
+                app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="172dp"
+                android:text="@string/dash"
+                android:textColor="@color/scoreText"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/thunders_score"
+                app:layout_constraintStart_toEndOf="@+id/laker_score"
+                app:layout_constraintTop_toTopOf="@+id/imageView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card">
+
+
+        <LinearLayout
+            android:id="@+id/scoreboard_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card"
+            app:layout_constraintVertical_bias="0.123"
+            tools:layout_editor_absoluteX="0dp">
+
+
+            <LinearLayout
+                android:id="@+id/quote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center"
+                    android:gravity="center"
+                    android:lineSpacingMultiplier="1.5"
+                    android:text="@string/match_details"
+                    android:textColor="#000"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:stretchColumns="*">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:paddingBottom="10dp">
+
+                        <TextView
+                            android:id="@+id/shooting_lakers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center"
+                            android:gravity="center"
+                            android:lineSpacingMultiplier="1.5"
+                            android:text="@string/default_score"
+                            android:textColor="#000"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/shooting"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center"
+                            android:gravity="center"
+                            android:lineSpacingMultiplier="1.5"
+                            android:text="@string/shooting"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="21sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/shooting_thunders"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center"
+                            android:gravity="center"
+                            android:lineSpacingMultiplier="1.5"
+                            android:text="@string/default_score"
+                            android:textColor="#000"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:paddingBottom="10dp">
+
+                        <TextView
+                            android:id="@+id/free_throws_lakers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center"
+                            android:gravity="center"
+                            android:lineSpacingMultiplier="1.5"
+                            android:text="@string/default_score"
+                            android:textColor="#000"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/free_throws"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center"
+                            android:gravity="center"
+                            android:lineSpacingMultiplier="1.5"
+                            android:text="@string/free_throws"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="21sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/free_throws_thunder"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center"
+                            android:gravity="center"
+                            android:lineSpacingMultiplier="1.5"
+                            android:text="@string/default_score"
+                            android:textColor="#000"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:paddingBottom="10dp">
+
+                        <TextView
+                            android:id="@+id/two_pointers_lakers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center"
+                            android:gravity="center"
+                            android:lineSpacingMultiplier="1.5"
+                            android:text="@string/default_score"
+                            android:textColor="#000"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/two_pointers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center"
+                            android:gravity="center"
+                            android:lineSpacingMultiplier="1.5"
+                            android:text="@string/two_pointers"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="21sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/two_pointers_thunder"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center"
+                            android:gravity="center"
+                            android:lineSpacingMultiplier="1.5"
+                            android:text="@string/default_score"
+                            android:textColor="#000"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:paddingBottom="10dp">
+
+                        <TextView
+                            android:id="@+id/three_pointers_lakers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center"
+                            android:gravity="center"
+                            android:lineSpacingMultiplier="1.5"
+                            android:text="@string/default_score"
+                            android:textColor="#000"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/three_pointers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center"
+                            android:gravity="center"
+                            android:lineSpacingMultiplier="1.5"
+                            android:text="@string/three_pointers"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="21sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/three_pointers_thunder"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center"
+                            android:gravity="center"
+                            android:lineSpacingMultiplier="1.5"
+                            android:text="@string/default_score"
+                            android:textColor="#000"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:paddingBottom="10dp">
+
+                        <TextView
+                            android:id="@+id/fouls_lakers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center"
+                            android:gravity="center"
+                            android:lineSpacingMultiplier="1.5"
+                            android:text="@string/default_score"
+                            android:textColor="#000"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/fouls"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center"
+                            android:gravity="center"
+                            android:lineSpacingMultiplier="1.5"
+                            android:text="@string/fouls"
+                            android:textColor="#4A4A46"
+                            android:textSize="21sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/fouls_thunder"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center"
+                            android:gravity="center"
+                            android:lineSpacingMultiplier="1.5"
+                            android:text="@string/default_score"
+                            android:textColor="#000"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp">
+
+
+                        <com.google.android.material.button.MaterialButtonToggleGroup
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal"
+                            app:selectionRequired="false"
+                            app:singleSelection="true">
+
+                            <Button
+                                android:id="@+id/lakers_minus_btn"
+                                style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:icon="@drawable/ic_minus_symbol" />
+
+                            <Button
+                                android:id="@+id/lakers_score_amount_btn"
+                                style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:width="30sp"
+                                android:height="30sp"
+                                android:enabled="false"
+                                android:text="@string/default_score_addition" />
+
+                            <Button
+                                android:id="@+id/lakers_add_btn"
+                                style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:icon="@drawable/ic_baseline_add_24" />
+
+                        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center"
+                            android:gravity="center"
+                            android:lineSpacingMultiplier="1.5"
+                            android:text="@string/dash"
+                            android:textColor="#000"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <com.google.android.material.button.MaterialButtonToggleGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            app:selectionRequired="false"
+                            app:singleSelection="true">
+
+                            <Button
+                                android:id="@+id/thunder_minus_btn"
+                                style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:icon="@drawable/ic_minus_symbol" />
+
+                            <Button
+                                android:id="@+id/thunder_score_amount_btn"
+                                style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:width="30sp"
+                                android:height="30sp"
+                                android:enabled="false"
+                                android:text="@string/default_score_addition" />
+
+                            <Button
+                                android:id="@+id/thunder_add_btn"
+                                style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:icon="@drawable/ic_baseline_add_24" />
+
+                        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                    </TableRow>
+                </TableLayout>
+
+
+                <TextView
+                    android:id="@+id/score_by"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center"
+                    android:layout_marginTop="5sp"
+                    android:gravity="center"
+                    android:lineSpacingMultiplier="1.5"
+                    android:text="@string/scored_by"
+                    android:textColor="#000"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+
+                <RadioGroup
+                    android:id="@+id/point_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:checkedButton="@+id/one_points_rd"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="10sp">
+
+                    <RadioButton
+                        android:id="@+id/one_points_rd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:text="@string/_1_point" />
+
+                    <RadioButton
+                        android:id="@+id/two_points_rd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+
+                        android:text="@string/_2_points" />
+
+                    <RadioButton
+                        android:id="@+id/three_points_rd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:text="@string/_3_points" />
+                </RadioGroup>
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
